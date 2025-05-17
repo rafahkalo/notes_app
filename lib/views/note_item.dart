@@ -1,6 +1,5 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:notes_app/views/note_edit_view.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key});
@@ -9,6 +8,14 @@ class NoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return const NoteEditView();
+            },
+          ),
+        );
       },
       child: Container(
         decoration: BoxDecoration(
@@ -22,15 +29,12 @@ class NoteItem extends StatelessWidget {
             ListTile(
               title: Text(
                 'Test',
-                style: const TextStyle(
-                  fontSize: 26,
-                  color: Colors.black,
-                ),
+                style: const TextStyle(fontSize: 26, color: Colors.black),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
-                    'build your career',
+                  'build your career',
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.black.withOpacity(.4),
@@ -38,24 +42,17 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {
-                },
-                icon: const Icon(
-                  Icons.delete,
-                  color: Colors.black,
-                  size: 30,
-                ),
+                onPressed: () {},
+                icon: const Icon(Icons.delete, color: Colors.black, size: 30),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Text(
                 'May21, 2025',
-                style: TextStyle(
-                  color: Colors.black.withOpacity(.4),
-                ),
+                style: TextStyle(color: Colors.black.withOpacity(.4)),
               ),
-            )
+            ),
           ],
         ),
       ),
